@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">/
+    <title>{% block title %}Computing Chat{% endblock %}</title>
+    <link rel="icon" href="{{ url_for('static', filename='fav.png') }}" type="image/png">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <section class="container-fluid">
+        <header class="jumbotron" id="welcome-banner">
+            <h1 class="display-4">Computing Chat</h1>
+            <p class="lead">Welcome</p>
+        </header>
+        <main class="text-center">
+            <aside id="message-section">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div>{{ messages[0][1] }}</div>
+                    {% endif %}
+                {% endwith %}
+                {% block content %}
+                {% endblock %}
+            </aside>
+        </main>
+    </section>
+</body>
+</html>
