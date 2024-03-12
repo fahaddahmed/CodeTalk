@@ -1,0 +1,33 @@
+{% from 'form_macros.html' import displayField %}
+
+{% extends "pre-login.html" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+    <div id="center-padding">
+        <h1>Create Your Account</h1>
+
+        <div id="center-padding">
+            <form action="{{ url_for('register') }}" method="POST">
+                <div>
+                    <!-- Input field for username with autocomplete turned off and auto-focus on -->
+                    {{ displayField(form.username, "Choose a Username", autocomplete="off", autofocus=true) }}
+                    <!-- Password entry field -->
+                    {{ displayField(form.password, "Create a Password") }}
+                    <!-- Field for confirming password -->
+                    {{ displayField(form.confirm_password, "Confirm Your Password") }}
+                </div>
+
+                <div>
+                    <!-- Submit button for form submission -->
+                    {{ form.submit_button(class="btn btn-primary btn-block") }}
+                </div>
+
+                <!-- Cross-Site Request Forgery (CSRF) token for form security -->
+                {{ form.csrf_token }}
+            </form>
+        </div>
+    </div>
+{% endblock %}
+

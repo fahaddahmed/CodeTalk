@@ -1,0 +1,32 @@
+{% from 'form_macros.html' import displayField %}
+
+{% extends "pre-login.html" %}
+
+{% block title %}Sign In{% endblock %}
+
+{% block content %}
+    <div id="center-padding">
+        <h1>Sign In</h1>
+        <p>Please provide your login credentials below</p>
+
+        <div id="center-padding">
+            <form action="{{ url_for('index') }}" method="POST">
+                <div>
+                    {{ displayField(form.username, "Username", autocomplete="off", autofocus=true) }}
+                    {{ displayField(form.password, "Password") }}
+                </div>
+
+                <div>
+                    {{ form.submit_button(class="btn btn-info btn-block") }}
+                </div>
+
+                {{ form.csrf_token }}
+            </form>
+
+            <hr/>
+
+            <p>Not a member yet? <a href={{ url_for('register') }}>Create an account</a>.</p>
+        </div>
+    </div>
+{% endblock %}
+
