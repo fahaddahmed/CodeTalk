@@ -1,0 +1,31 @@
+{% from 'form_macros.html' import displayField %}  {# Importing displayField macro from form_macros.html #}
+
+{% extends "pre-login.html" %}  {# Extending from the base template pre-login.html #}
+
+{% block title %}Login{% endblock %}  {# Setting the title block to 'Login' #}
+
+{% block content %}
+    <div id="center-padding">  {# Centered container for the login form #}
+        <h1>Login</h1>
+        <p>Enter Account Details for Login</p>
+
+        <div id="center-padding">
+            <form action="{{ url_for('index') }}" method="POST">  {# Form action points to the index route with POST method #}
+                <div>
+                    {{ displayField(form.username, "Username", autocomplete="off", autofocus=true) }}  {# Display username field with autofocus #}
+                    {{ displayField(form.password, "Password") }}  {# Display password field #}
+                </div>
+
+                <div>
+                    {{ form.submit_button(class="btn btn-info btn-block") }}  {# Submit button styled with Bootstrap classes #}
+                </div>
+
+                {{ form.csrf_token }}  {# CSRF token for security #}
+            </form>
+
+            <hr/>
+
+            <p>Have not registered? <a href={{ url_for('register') }}>Register here</a>.</p>  {# Link to registration page #}
+        </div>
+    </div>
+{% endblock %}
