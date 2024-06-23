@@ -1,0 +1,31 @@
+{% from 'form_macros.html' import displayField %}
+
+{% extends "pre-login.html" %}
+
+{% block title %} Registration {% endblock %}
+
+{% block content %} 
+    <div id="center-padding">
+        <h1>Register</h1>
+
+        <!-- Centered form for user registration -->
+        <div id="center-padding">
+            <form action="{{ url_for('register') }}" method="POST">
+                <!-- User input fields -->
+                <div>
+                    {{ displayField(form.username, "Username", autocomplete="off", autofocus=true) }}
+                    {{ displayField(form.password, "Password") }}
+                    {{ displayField(form.confirm_password, "Retype Password") }}
+                </div>
+
+                <!-- Submit button -->
+                <div>
+                    {{ form.submit_button(class="btn btn-info btn-block") }}
+                </div>
+
+                <!-- CSRF token for security -->
+                {{ form.csrf_token }}
+            </form>
+        </div>
+    </div>
+{% endblock %}
