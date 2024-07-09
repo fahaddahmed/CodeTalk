@@ -1,0 +1,14 @@
+{% from 'form_macros.html' import displayField %}
+{% extends "pre-login.html" %}
+
+{% block title %}Page Not Found {% endblock %}
+
+{% block content %}
+    <h2>Sorry, the page you are looking for does not exist!</h2>
+    <br/>
+    <h4>Go to <a href={{ url_for('index') }}>login page</a> to start chating.</h3>
+    <br/>
+    <hr>
+
+    <p>Have not registered? <a href={{ url_for('register') }}>Register here</a>.</p>
+{% endblock %}
