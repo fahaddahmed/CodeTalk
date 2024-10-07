@@ -1,6 +1,6 @@
-# 🗨️ Computing Chat
+# 🗨️ CodeTalk
 
-Welcome to **Computing Chat**, a web application designed to foster seamless and secure communication among computer science students and enthusiasts. Powered by Flask, this platform offers an intuitive chatting experience tailored to the needs of the tech-savvy community.
+Welcome to **CodeTalk**, a web application designed to foster seamless and secure communication among computer science students and enthusiasts. Powered by Flask, this platform offers an intuitive chatting experience tailored to the needs of the tech-savvy community.
 
 ## 🎯 Motivation
 
